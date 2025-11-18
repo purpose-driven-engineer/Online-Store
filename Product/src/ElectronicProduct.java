@@ -36,4 +36,13 @@ public class ElectronicProduct extends Product{
         System.out.println("Brand Name: " + brand);
         System.out.println("Warranty Months: " + warrantyMonths);
     }
+
+    @Override
+    public double calculateDiscountedPrice(double discountPercentage){
+        if(getPrice() > 500 && discountPercentage > 10) {
+            System.out.println("Applying discount for premium electronic product.");
+            return super.calculateDiscountedPrice(discountPercentage + 5);
+        }
+        return super.calculateDiscountedPrice(discountPercentage);
+    }
 }
